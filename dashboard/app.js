@@ -2,7 +2,7 @@
 	'use strict';
 	var app = angular.module('dashboardApp', [ 'flybaseResourceHttp' ])
 		.constant('FLYBASE_CONFIG',{
-			API_KEY:"YOUR-API-KEY",
+API_KEY:"token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlrZXkiOiJkMmZkYzY3Ni1mN2ExLTQ2NDAtOGQzNi0zNzZjZWMyMGViNzUiLCJpYXQiOjE0NjA2NjA0OTQsImNyZWF0ZWQiOiIyMDE2LTA0LTE0IDEyOjAxOjM0IiwiZXhwaXJlcyI6IjIwMTYtMDUtMTQgMTI6MDE6MzQifQ.thTPvoEUC0rwCAxglGnFJgYbOA6STREjHTWgalqAQrA",
 			DB_NAME:'questions'
 		})
 		.factory('Question', function ($flybaseResourceHttp) {
