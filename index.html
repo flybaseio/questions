@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="https://cdn.flybase.io/flybase.js"></script>
+		<script src="https://cdn.flybase.io/angularfly.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body ng-app="questionApp" ng-controller="questionController">
+		<div id="ask-question">
+			<form ng-submit="saveQuestion(newquestion)">
+				<input id="new-question" type="text" ng-model="newquestion" placeholder="Ask a question about Flybase...">
+			</form>
+		</div>
+		<div id="questions">
+			<ul style="height: {{questions.length * 2.5}}em;">
+				<li ng-repeat="q in questions | orderBy:'-points'" class="question question-{{$index}}" style="top: {{$index * 2.5}}em">
+					<a ahref="#" ng-click="upvoteQuestion( q._id )" class="upvote">
+						<span class="upvote-arrow"></span>
+						<span class="points">{{ q.points }}</span>
+					</a>
+					<span class="question">{{ q.question }}</span>
+				</li>
+			</ul>
+		</div>
+    </body>
+</html>
