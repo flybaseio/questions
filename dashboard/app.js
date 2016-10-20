@@ -24,36 +24,14 @@ API_KEY:"token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlrZXkiOiJkMmZkYzY3Ni1m
 			$scope.init();
 
 			$scope.init_epoch = function( ){
-				$scope.update_epoch();
-/*
 				$scope.epoch =  jQuery('#chart').epoch({
 					type: 'bar',
 					data: []
 				});
 				$scope.update_epoch();
-*/
 			};
 
 			$scope.update_epoch = function(){
-				google.charts.load('current', {'packages':['corechart']});
-				google.charts.setOnLoadCallback(drawChart);
-
-				function drawChart() {
-					var new_data = jQuery.map($scope.questions, function(question, i) {
-			            return [question.question, question.points];
-			        });
-
-					var data = new google.visualization.DataTable();
-					data.addColumn('string', 'Question');
-					data.addColumn('number', 'Points');
-					data.addRows( new_data );
-					
-					var options = {'title':'Questions','width':400,'height':300};
-					var chart = new google.visualization.PieChart(document.getElementById('chart'));
-					chart.draw(data, options);
-				}
-
-/*
 				var new_data = jQuery.map($scope.questions, function(question, i) {
 		            return {
 		                x: question.question,
@@ -65,7 +43,6 @@ API_KEY:"token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlrZXkiOiJkMmZkYzY3Ni1m
 		            label: 'series',
 		            values: new_data
 		        }]);
-*/
 			};
 			Question.flybase().on('added', function( data ){
 				$timeout(function() {
